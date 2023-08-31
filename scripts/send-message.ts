@@ -15,7 +15,6 @@ const message_to_send: string = "Lightweight Baby!";
 
 const sendMessage = async () => {
   const [signer] = await ethers.getSigners();
-  console.log("Signer: ", signer);
   console.log("Using the account: ", await signer.getAddress());
   console.log("Sender contract address: ", sender_contract_address);
 
@@ -28,15 +27,15 @@ const sendMessage = async () => {
   // console.log(contract);
 
   try{
-    const tx = contract.sendMessage(
+    const tx = await contract.sendMessage(
       destination_chain_id,
       receiver_contract_address, 
       message_to_send
     );
-  
-    tx.then((receipt: any) => {
-      console.log(receipt);
-    });
+    
+    console.log("Message sent!");
+    console.log("Transaction hash: ", tx.hash);
+    console.log("Check current status of the transaction here: https://ccip.chain.link/tx/" + tx.hash)
   } catch (e) {
     console.log(e);
   }

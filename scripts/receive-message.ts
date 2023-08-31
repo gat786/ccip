@@ -16,7 +16,9 @@ const receive_message = async () => {
   const tx = await contract.getLastReceivedMessageDetails();
 
   console.log("Last received message details: ");
-  console.log(tx);
+  console.log(`Transaction id: ${tx[0]}`);
+  console.log(`Message Received: ${tx[1]}`);
+  console.log(`View Txn details here: https://ccip.chain.link/msg/${tx[0]}`);
 }
 
 receive_message();
