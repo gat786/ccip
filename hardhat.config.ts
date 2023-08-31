@@ -3,8 +3,8 @@ import { HardhatUserConfig } from "hardhat/types";
 
 require('dotenv').config();
 
-const sepolia_url = process.env.SEPOLIA_URL || "";
-const mumbai_url = process.env.MUMBAI_URL || "";
+const sender_url = process.env.SENDER_URL || "";
+const receiver_url = process.env.RECEIVER_URL || "";
 
 const private_key = process.env.PRIVATE_KEY || "";
 
@@ -12,12 +12,12 @@ const private_key = process.env.PRIVATE_KEY || "";
 const config: HardhatUserConfig = {
   solidity: "0.8.19",
   networks: {
-    sepolia: {
-      url: sepolia_url,
+    sender: {
+      url: sender_url,
       accounts: [ private_key ]
     },
-    mumbai: {
-      url: mumbai_url,
+    receiver: {
+      url: receiver_url,
       accounts: [ private_key ]
     }
   }

@@ -20,6 +20,25 @@
       "outFiles": [
         "${workspaceFolder}/**/*.js"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Deploy Sender",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "hardhat",
+        "run",
+        "--network",
+        "sender"
+      ],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "scripts/deploy-sender.ts",
+      "outFiles": [
+        "${workspaceFolder}/**/*.js"
+      ]
     }
   ]
 }
